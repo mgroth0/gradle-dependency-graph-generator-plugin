@@ -4,6 +4,7 @@ import guru.nidi.graphviz.attribute.Color
 import guru.nidi.graphviz.attribute.Font
 import guru.nidi.graphviz.attribute.Label
 import guru.nidi.graphviz.attribute.Rank
+import guru.nidi.graphviz.attribute.Rank.RankType.SAME
 import guru.nidi.graphviz.attribute.Shape
 import guru.nidi.graphviz.attribute.Style
 import guru.nidi.graphviz.model.Factory.graph
@@ -77,7 +78,8 @@ internal class ProjectDependencyGraphGenerator(
   @Suppress("Detekt.SpreadOperator") private fun rankRootProjects(graph: MutableGraph, projects: MutableSet<Project>, rootProjects: MutableList<Project>) {
     graph.add(graph()
         .graphAttr()
-        .with(Rank.SAME)
+//        .with(Rank.SAME)
+        .with(Rank.inSubgraph(SAME))
         .with(*projects.filter { rootProjects.contains(it) }.map { mutNode(it.path) }.toTypedArray()))
   }
 
