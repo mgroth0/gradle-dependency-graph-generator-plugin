@@ -1,7 +1,7 @@
 buildscript {
     String theName = "kotlin"
 
-    File f = new File("../flow")
+    File f = new File("/Users/matt/Desktop/registered/todo/flow")
     String s = f.toPath().resolve("libs.versions.toml").toFile().text.lines().find { it.contains(theName) }
     String s1 = s.substring(s.indexOf("\"") + 1)
 
