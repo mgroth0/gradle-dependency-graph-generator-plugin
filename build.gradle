@@ -2,7 +2,7 @@ buildscript {
     String theName = "kotlin"
 
     File f = new File("/Users/matthewgroth/registered/flow")
-    String s = f.toPath().resolve("libs.versions.toml").toFile().text.lines().find { it.contains(theName) }
+    String s = f.toPath().resolve("RootFiles").resolve("libs.versions.toml").toFile().text.lines().find { it.contains(theName) }
     String s1 = s.substring(s.indexOf("\"") + 1)
 
 //  ext.kotlinVersion = '1.3.21'
